@@ -1,0 +1,14 @@
+@model LibraryManagementSystem.BLL.Models.Author
+
+@{
+    ViewData["Title"] = "Author Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <strong>Name:</strong> @Model.Name
+</div>
+
+<a href="@Url.Action("Edit", "Author", new { id = Model.Id })">Edit</a> |
+<a href="@Url.Action("Delete", "Author", new { id = Model.Id })">Delete</a>

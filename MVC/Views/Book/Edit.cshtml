@@ -1,0 +1,33 @@
+@model LibraryManagementSystem.BLL.Models.Book
+
+@{
+    ViewData["Title"] = "Edit Book";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Edit">
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title" />
+    </div>
+    <div class="form-group">
+        <label for="AuthorId">Author</label>
+        <select class="form-control" id="AuthorId" name="AuthorId">
+            @foreach (var author in ViewBag.Authors)
+            {
+                <option value="@author.Id" @(author.Id == Model.AuthorId ? "selected" : "")>@author.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="CategoryId">Category</label>
+        <select class="form-control" id="CategoryId" name="CategoryId">
+            @foreach (var category in ViewBag.Categories)
+            {
+                <option value="@category.Id" @(category.Id == Model.CategoryId ? "selected" : "")>@category.Name</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>

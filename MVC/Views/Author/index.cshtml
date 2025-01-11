@@ -1,0 +1,30 @@
+@model IEnumerable<LibraryManagementSystem.BLL.Models.Author>
+
+@{
+    ViewData["Title"] = "Authors";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<a href="@Url.Action("Create", "Author")">Create New Author</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var author in Model)
+        {
+            <tr>
+                <td>@author.Name</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Author", new { id = author.Id })">Edit</a> |
+                    <a href="@Url.Action("Delete", "Author", new { id = author.Id })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
